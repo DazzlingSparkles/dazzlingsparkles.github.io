@@ -3,12 +3,12 @@
  <h1>Hello. Go back to the other tab.</h1>
   <script>
    if (window.opener) {
-		window.opener.location = "https://hacked.example";
+		window.opener.location.href = "https://hacked.example";
    }
   </script>
   
   <script>
-	console.log(window.opener.location);
+	console.log(window.opener.location.href);
   </script>
  </body>
 </html>
